@@ -51,9 +51,7 @@ def convert_orders():
                 rate_to_eur = rates['EUR']
                 amount_eur = round((float(amount) / rate_from) * rate_to_eur, 2)
                 rows_to_insert.append((order_id, email, order_date, amount_eur, 'EUR'))
-                # print(f"Converting {currency} amount: {amount}")
-            except KeyError as e:
-                # print(f"Currency {currency} missing in rates", e)
+            except KeyError:
                 continue
     
     dst_cursor.executemany("""

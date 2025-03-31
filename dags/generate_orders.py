@@ -20,7 +20,7 @@ def get_currency_list():
     if response.status_code == 200:
         return list(response.json().keys())
     else:
-        print("⚠️ Could not fetch currency list, using fallback")
+        print("Could not fetch currency list")
         return ['USD', 'EUR', 'CLP', 'GBP', 'JPY']
 
 def generate_orders():
